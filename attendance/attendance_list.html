@@ -1,0 +1,37 @@
+<?php 
+include('../config/db.php');
+
+if (isset($_POST['record'])) {
+
+    $patient_id = mysqli_real_escape_string($conn, $_POST['patient_id']);
+    $service_given = mysqli_real_escape_string($conn, $_POST['service_given']);
+    $notes = mysqli_real_escape_string($conn, $_POST['notes']);
+
+    $visit_date = date("Y-m-d");
+
+    // Check if patient exists
+    $check = "SELECT * FROM patients WHERE patient_id='$patient_id'";
+    $result = mysqli_query($conn, $check);
+
+    if (mysqli_num_rows($result) > 0) {
+
+        $query = "INSERT INTO attendance (patient_id, visit_date, service_given, notes)
+                  VALUES ('$patient_id', '$visit_date', '$service_given', '$notes')";
+
+        if (mysqli_query($conn, $query)) {
+            echo "<script>
+                    alert('Attendance recorded successfully.');
+                    window.location.href='attendance_list.php';
+                  </script>";
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
+
+    } else {
+        echo "<script>
+                alert('Patient ID not found. Please scan a valid QR code.');
+                window.location.href='scan_qr.php';
+              </script>";
+    }
+}
+?>
