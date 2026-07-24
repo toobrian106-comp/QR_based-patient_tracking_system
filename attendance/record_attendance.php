@@ -14,7 +14,7 @@ if (isset($_POST['record'])) {
     $service_given = mysqli_real_escape_string($conn, $_POST['service_given']);
     $notes = mysqli_real_escape_string($conn, $_POST['notes']);
 
-    // NEW
+    // NEW security check: ensure that the healthcare worker confirms the patient's identity before recording attendance      
     $identity_confirmed = $_POST['identity_confirmed'] ?? '';
 
     // NEW SECURITY CHECK

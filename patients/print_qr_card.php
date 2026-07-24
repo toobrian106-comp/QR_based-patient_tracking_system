@@ -2,6 +2,19 @@
 include('../includes/auth_check.php');
 include('../config/db.php');
 
+if (!isset($conn) || !$conn) {
+    $conn = mysqli_connect(
+        getenv('DB_HOST') ?: 'localhost',
+        getenv('DB_USERNAME') ?: 'root',
+        getenv('DB_PASSWORD') ?: '',
+        getenv('DB_NAME') ?: 'patient_tracking_system'
+    );
+
+    if (!$conn) {
+        die("Database connection failed: " . mysqli_connect_error());
+    }
+}
+
 if (!isset($_GET['id'])) {
     header("Location: manage_patients.php");
     exit();

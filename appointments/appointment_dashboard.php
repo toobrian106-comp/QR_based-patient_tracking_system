@@ -56,7 +56,7 @@ AND appointments.status='Scheduled'
 ORDER BY appointments.appointment_date DESC
 ");
 
-function formatPhone($phone){
+function formatPhone(string $phone): string {
     $phone = preg_replace('/[^0-9]/', '', $phone);
 
     if(substr($phone, 0, 1) == "0"){

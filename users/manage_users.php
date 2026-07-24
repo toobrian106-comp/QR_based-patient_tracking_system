@@ -1,6 +1,6 @@
 <?php 
-include('../includes/admin_check.php');
-include('../config/db.php');
+include(__DIR__ . '/../includes/admin_check.php');
+include(__DIR__ . '/../config/db.php');
 
 $message = "";
 

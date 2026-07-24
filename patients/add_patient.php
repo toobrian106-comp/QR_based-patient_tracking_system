@@ -191,10 +191,14 @@ if(isset($_POST['save_patient'])){
 
                     <div class="col-md-4 mb-3">
                         <label>Phone</label>
-                        <input type="text"
+                        <input type="tel"
                                name="phone"
                                class="form-control"
-                               placeholder="Enter phone number">
+                               placeholder="07XXXXXXXX"
+                               maxlength="10"
+                               pattern="[0-9]{10}"
+                               inputmode="numeric"
+                               required oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                     </div>
 
                     <div class="col-md-4 mb-3">

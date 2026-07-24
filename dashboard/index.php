@@ -3,7 +3,7 @@ include(__DIR__ . '/../includes/auth_check.php');
 require_once(__DIR__ . '/../config/db.php');
 include(__DIR__ . '/../includes/generate_notifications.php');
 
-function getDashboardCount($conn, $sql)
+function getDashboardCount(mysqli $conn, string $sql): int
 {
     $result = mysqli_query($conn, $sql);
 
@@ -805,10 +805,10 @@ $qr_coverage = $total_patients > 0
 
         <div class="sidebar-label">Session</div>
 
-        <a href="../auth/logout.php" class="sidebar-link sidebar-logout" onclick="return confirm('Log out of the system?');">
-            <i class="bi bi-box-arrow-right"></i>
-            <span>Logout</span>
-        </a>
+                <a href="../auth/logout.php" class="sidebar-link sidebar-logout">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Logout</span>
+                </a>
     </div>
 </aside>
 

@@ -1,6 +1,18 @@
 <?php 
-include('../includes/auth_check.php');
-include('../config/db.php');
+include(__DIR__ . '/../includes/auth_check.php');
+include(__DIR__ . '/../config/db.php');
+
+if (!isset($conn)) {
+    if (isset($link)) {
+        $conn = $link;
+    } elseif (isset($connection)) {
+        $conn = $connection;
+    } elseif (isset($db)) {
+        $conn = $db;
+    } else {
+        die('Database connection not established.');
+    }
+}
 
 if (!isset($_GET['id'])) {
     header("Location: /patient_tracking_system/patients/manage_patients.php");

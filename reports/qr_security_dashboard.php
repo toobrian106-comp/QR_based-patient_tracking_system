@@ -2,6 +2,11 @@
 include('../includes/admin_check.php');
 include('../config/db.php');
 
+// Ensure database connection is available
+if (!isset($conn) || $conn === null) {
+    die('Database connection failed.');
+}
+
 /*
 |--------------------------------------------------------------------------
 | QR SECURITY SUMMARY
@@ -10,7 +15,7 @@ include('../config/db.php');
 
 $today = date("Y-m-d");
 
-function getCount($conn, $sql)
+function getCount(mysqli $conn, string $sql): int
 {
     $result = mysqli_query($conn, $sql);
 
