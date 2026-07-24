@@ -1,8 +1,7 @@
 <?php
 
-// Redirect system to login page
-header("Location: /patient_tracking_system/auth/login.php");
-
+// Redirect to login page
+header("Location: auth/login.php");
 exit();
 
 ?>
