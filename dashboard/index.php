@@ -106,7 +106,7 @@ $failed_qr_attempts = getDashboardCount(
     $conn,
     "SELECT COUNT(*) AS total
      FROM qr_scan_attempts
-     WHERE attempt_status='Failed'"
+     WHERE scan_status='FAILED'"
 );
 
 $recent_result = mysqli_query(
