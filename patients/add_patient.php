@@ -1,4 +1,7 @@
-<?php 
+<?php
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
+ini_set('display_errors', 0);
+
 include('../includes/auth_check.php');
 include('../config/db.php');
 include('../includes/log_action.php');
