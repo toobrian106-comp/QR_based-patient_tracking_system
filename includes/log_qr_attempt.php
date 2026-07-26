@@ -3,12 +3,12 @@
 if (!function_exists('logQrAttempt')) {
 
     function logQrAttempt(
-        $conn,
-        $patientId,
-        $scannedValue,
-        $attemptStatus,
-        $failureReason = ''
-    ) {
+        mysqli $conn,
+        string $patientId,
+        string $scannedValue,
+        string $attemptStatus,
+        string $failureReason = ''
+    ): bool {
         if (!$conn) {
             return false;
         }
