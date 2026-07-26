@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
-ini_set('display_errors', 0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 include('../includes/auth_check.php');
 include('../config/db.php');
